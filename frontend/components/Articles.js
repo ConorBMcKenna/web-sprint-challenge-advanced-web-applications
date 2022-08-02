@@ -4,7 +4,7 @@ import PT from 'prop-types'
 
 export default function Articles(props) {
   // ✨ where are my props? Destructure them here
-  const { getArticles, articles, deleteArticle } = props;
+  const { getArticles, articles, deleteArticle, setCurrentArticleId, currentArticleId } = props;
 
   
 
@@ -36,8 +36,8 @@ export default function Articles(props) {
                   <p>Topic: {art.topic}</p>
                 </div>
                 <div>
-                  <button disabled={true} onClick={Function.prototype}>Edit</button>
-                  <button onClick={()=>{deleteArticle(art.article_id)}}>Delete</button>
+                  <button disabled={currentArticleId} onClick={()=>{setCurrentArticleId(art.article_id)}}>Edit</button>
+                  <button disabled={currentArticleId}onClick={()=>{deleteArticle(art.article_id)}}>Delete</button>
                 </div>
               </div>
             )
